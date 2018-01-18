@@ -18,8 +18,6 @@ Plugin 'tpope/vim-fugitive'
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -29,6 +27,9 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " for vim-jsx
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ctrlpvim/ctrlp.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -46,4 +47,15 @@ filetype plugin indent on    " required
 "
 " Allow .js files to be included in jsx syntax highlighting
 let g:jsx_ext_required = 0
-set tabstop=4
+set tabstop=4 " The width of a TAB is set to 4
+set shiftwidth=4    " Indents will have a width of 4
+set softtabstop=4   " Sets the number of columns for a TAB
+set expandtab       " Expand TABs to spaces
+set number " Adds numbers to side
+filetype plugin indent on 
+syntax on
+
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git' " ctrl P ignore
+let g:airline#extensions#tabline#enabled = 1 " vim-airline show tab buffer
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#left_alt_sep = '|'
